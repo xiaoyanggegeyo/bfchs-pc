@@ -6,9 +6,9 @@
           <b-img fluid  :src="size=='big' ? require('~/static/img/banner/banner02_big.jpg') : require('~/static/img/banner/banner02_small.jpg')"  alt="banner"></b-img>
           <div class="mask mask2">
             <div class="content content2">
-              <h3 class="title mb-3 wow fadeInLeft" data-wow-delay="0.2s">大数据</h3>
-              <p class="desc wow mb-1 fadeInRight" data-wow-delay="0.2s">数据驱动政府、企业数字化转型</p>
-              <p class="line wow fadeInUp" data-wow-delay="0.6s">We will help the governments and enterprise digital transformation</p>
+              <h3 class="title mb-3 wow fadeInLeft" data-wow-delay="0.2s">报废车辆处理</h3>
+              <p class="desc wow mb-1 fadeInRight" data-wow-delay="0.2s">环境驱动经济、人类和谐发展</p>
+              <p class="line wow fadeInUp" data-wow-delay="0.6s">We will help the governments and enterprise protect the environment</p>
             </div>
           </div>
         </div>
@@ -20,9 +20,9 @@
           <b-img fluid :src="size=='big' ? require('~/static/img/banner/banner01_big.jpg') : require('~/static/img/banner/banner01_small.jpg')" alt="banner"></b-img>
           <div class="mask">
             <div class="content">
-              <h3 class="title mb-3 wow fadeInLeft" data-wow-delay="0.2s">云计算</h3>
-              <p class="desc wow mb-1 fadeInRight" data-wow-delay="0.2s">IT基础设施提供商</p>
-              <p class="line wow fadeInUp" data-wow-delay="0.6s">To provide professional infrastructure services</p>
+              <h3 class="title mb-3 wow fadeInLeft" data-wow-delay="0.2s">报废车辆处理</h3>
+              <p class="desc wow mb-1 fadeInRight" data-wow-delay="0.2s">报废车辆处理提供商</p>
+              <p class="line wow fadeInUp" data-wow-delay="0.6s">To provide protect the environment services</p>
             </div>
           </div>
         </div>
