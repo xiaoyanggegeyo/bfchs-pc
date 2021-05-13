@@ -1,6 +1,12 @@
 <template>
-  <section class="py-5 wrapper">
-    <div class="container">
+  <section class="wrapper" style="background-color:#fff;">
+    <!--    轮播图-->
+    <carousel class="d-none d-md-block d-lg-block d-xl-block" style="height: 0; padding-bottom: 31.2%" size="big"
+              :url="require('~/static/img/banner/banner01_big.jpg')"/>
+    <!--    <carousel class="d-block d-md-none d-lg-none d-xl-none" style="height: 0; padding-bottom: 120%" size="small"/>-->
+
+
+    <div class="container" style="margin-top: 5%">
       <Title title="联系我们" englishTitle="CONTACT US"/>
       <!--      地图-->
       <b-row style="padding-top: 4%;margin-top:4%;border-top: 1px solid #ccc; ">
@@ -32,11 +38,13 @@
   import {mapState} from 'vuex'
   import Title from '@/components/common/title';
   import ServerItem from '@/components/common/server-item';
+  import Carousel from '@/components/index/custom-carousel';
+
   if (process.browser) { // 在这里根据环境引入wow.js
     var {WOW} = require('wowjs')
   }
   export default {
-    components: {Title, ServerItem},
+    components: {Title, ServerItem, Carousel},
     data() {
       return {
         active: null,

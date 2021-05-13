@@ -1,50 +1,9 @@
 <template>
-  <b-carousel v-model="slide" :interval="5000" controls fade indicators background="#ababab"
-              style="text-shadow: 1px 1px 2px #333; background: #ccc" @sliding-start="onSlideStart"
-              @sliding-end="onSlideEnd">
-    <!--    <b-carousel-slide>-->
-    <!--      <template v-slot:img>-->
-    <!--        <div style="position: relative">-->
-    <!--          <b-img fluid  :src="size=='big' ? require('~/static/img/banner/banner02_big.jpg') : require('~/static/img/banner/banner02_small.jpg')"  alt="banner"></b-img>-->
-    <!--          <div class="mask mask2">-->
-    <!--            <div class="content content2">-->
-    <!--              <h3 class="title mb-3 wow fadeInLeft" data-wow-delay="0.2s">报废车辆处理</h3>-->
-    <!--              <p class="desc wow mb-1 fadeInRight" data-wow-delay="0.2s">环境驱动经济、人类和谐发展</p>-->
-    <!--              <p class="line wow fadeInUp" data-wow-delay="0.6s">We will help the governments and enterprise protect the environment</p>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </template>-->
-    <!--    </b-carousel-slide>-->
-    <!--    <b-carousel-slide>-->
-    <!--      <template v-slot:img>-->
-    <!--        <div style="position: relative">-->
-    <!--          <b-img fluid :src="size=='big' ? require('~/static/img/banner/banner01_big.jpg') : require('~/static/img/banner/banner01_small.jpg')" alt="banner"></b-img>-->
-    <!--          <div class="mask">-->
-    <!--            <div class="content">-->
-    <!--              <h3 class="title mb-3 wow fadeInLeft" data-wow-delay="0.2s">报废车辆处理</h3>-->
-    <!--              <p class="desc wow mb-1 fadeInRight" data-wow-delay="0.2s">报废车辆处理提供商</p>-->
-    <!--              <p class="line wow fadeInUp" data-wow-delay="0.6s">To provide protect the environment services</p>-->
-    <!--            </div>-->
-    <!--          </div>-->
-    <!--        </div>-->
-    <!--      </template>-->
-    <!--    </b-carousel-slide>-->
-
-    <b-carousel-slide>
-      <template v-slot:img>
-        <b-img fluid
-               :src="size=='big' ? require('~/static/img/banner/banner01_big.jpg') : require('~/static/img/banner/banner01_small.jpg')"
-               alt="banner"/>
-      </template>
-    </b-carousel-slide>
-    <b-carousel-slide>
-      <template v-slot:img>
-        <b-img fluid
-               :src="size=='big' ? require('~/static/img/banner/banner02_big.jpg') : require('~/static/img/banner/banner02_small.jpg')"
-               alt="banner"/>
-      </template>
-    </b-carousel-slide>
+  <b-carousel v-model="slide" fade indicators background="#ababab"
+              style="text-shadow: 1px 1px 2px #333; background: #ccc">
+    <b-img fluid
+           :src="size=='big' ? url : ''"
+           alt="banner"/>
   </b-carousel>
 </template>
 
@@ -57,6 +16,10 @@
     name: 'custom-carousel',
     props: {
       size: {
+        type: String,
+        default: ''
+      },
+      url: {   //动态传入图片url
         type: String,
         default: ''
       }

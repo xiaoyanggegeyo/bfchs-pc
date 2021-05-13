@@ -1,5 +1,10 @@
 <template>
   <section>
+    <!--    轮播图-->
+    <carousel class="d-none d-md-block d-lg-block d-xl-block" style="height: 0; padding-bottom: 31.2%" size="big"
+              :url="require('~/static/img/banner/banner01_big.jpg')"/>
+    <!--    <carousel class="d-block d-md-none d-lg-none d-xl-none" style="height: 0; padding-bottom: 120%" size="small"/>-->
+
 
     <div class="container py-5">
       <Title title="回收咨询" englishTitle="NEWS" style="margin-bottom: 8%;margin-top: 5%"/>
@@ -64,9 +69,10 @@
   }
   import Title from '@/components/common/title';
   import ServerItem from '@/components/common/server-item';
+  import Carousel from '@/components/index/custom-carousel';
 
   export default {
-    components: {Title, ServerItem},
+    components: {Title, ServerItem, Carousel},
     data() {
       return {
         productList: [

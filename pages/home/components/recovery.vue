@@ -4,7 +4,7 @@
       <div style="flex: 1">
         <Title :title="title" :englishTitle="englishTitle"/>
       </div>
-      <div class="getmore" @click="NavRecoveryConsult">了解更多>></div>
+      <div class="getmore" @click="$router.push('/business')">了解更多>></div>
     </b-row>
     <b-row class="mx-0" style="position: relative;bottom:-60px">
       <b-col lg="3" md="6" sm="12" v-for="(item, ind) of productList" :key="ind" class="wow fadeInUp my-img-box"

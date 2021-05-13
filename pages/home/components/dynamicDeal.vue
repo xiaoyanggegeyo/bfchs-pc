@@ -18,7 +18,8 @@
       <b-col lg="5" md="12" sm="12" class="wow slideInRight">
         <Title title="全新交易" englishTitle="LATEST DEAL"/>
         <div class="rightProductBox">
-          <div class="item" v-for="(item,index) in productList" :key="index" :style="index == productList.length - 1 ? '' : 'border-bottom: 1px solid #dbeaef'">
+          <div class="item" v-for="(item,index) in productList" :key="index"
+               :style="index == productList.length - 1 ? '' : 'border-bottom: 1px solid #dbeaef'">
             <div class="leftBox">
               <div class="product-name">{{item.productName}}</div>
               <div class="product-price">
@@ -53,48 +54,79 @@
     components: {MySlot, Title},
     data() {
       return {
-        newList: [{content: "真的十分士大夫十分士大夫士大夫啊大大", time: "2020-12-5"},
-          {content: "真的十分士大夫十分士大夫士大夫啊大大", time: "2020-12-5"},
-          {content: "真的十分士大夫十分士大夫士大夫啊大大", time: "2020-12-5"},
-          {content: "真的十分士大夫十分士大夫士大夫啊大大", time: "2020-12-5"}],
+        newList: [{content: "贵阳汽车报废不办手续会不会影响新车登记", time: this.dateFormat('YYYY-mm-dd', new Date())},
+          {content: "贵阳上门回收报车​", time: this.dateFormat('YYYY-mm-dd', new Date())},
+          {content: "贵阳高速困境救援拖车价格", time: this.dateFormat('YYYY-mm-dd', new Date())},
+          {content: "贵阳高价收购报废车之车辆报废补贴", time: this.dateFormat('YYYY-mm-dd', new Date())}],
         productList: [{
-          productName: "VDVVXCV",
-          price: "￥2541",
-          time: '2010-52-36',
+          productName: "价格面议",
+          price: "xxx",
+          time: this.dateFormat('YYYY-mm-dd HH:MM:SS', new Date()),
           phone: '2415265522'
         },
           {
-            productName: "VDVVXCV",
-            price: "￥2541", time: '2010-52-36', phone: '2415265522'
+            productName: "价格面议",
+            price: "xxx", time: this.dateFormat('YYYY-mm-dd HH:MM:SS', new Date()), phone: '2415265522'
           },
           {
-            productName: "VDVVXCV",
-            price: "￥2541",
-            time: '2010-52-36',
+            productName: "价格面议",
+            price: "xxx",
+            time: this.dateFormat('YYYY-mm-dd HH:MM:SS', new Date()),
             phone: '2415265522'
           }]
       }
     },
-    methods: {
-      ...mapMutations(['setSubNavIndex']),
-      handleAboutClick() {
-        this.setSubNavIndex(0)
-        this.$router.push('/about')
-      },
-      //TODO 获取新闻列表
-      getNewsList() {
+      methods: {
+      ...
+        mapMutations(['setSubNavIndex']),
+          handleAboutClick()
+        {
+          this.setSubNavIndex(0)
+          this.$router.push('/about')
+        }
+      ,
+        //TODO 获取新闻列表
+        getNewsList()
+        {
 
-      },
-      //TODO 获取新闻详情
-      getNewsDetail(row) {
+        }
+      ,
+        //TODO 获取新闻详情
+        getNewsDetail(row)
+        {
 
-      },
-      //TODO 获取商品列表
-      getProductList() {
+        }
+      ,
+        //TODO 获取商品列表
+        getProductList()
+        {
 
-      },
+        }
+      ,
+        dateFormat(fmt, date)
+        {
+          let ret;
+          const opt = {
+            "Y+": date.getFullYear().toString(),        // 年
+            "m+": (date.getMonth() + 1).toString(),     // 月
+            "d+": date.getDate().toString(),            // 日
+            "H+": date.getHours().toString(),           // 时
+            "M+": date.getMinutes().toString(),         // 分
+            "S+": date.getSeconds().toString()          // 秒
+            // 有其他格式化字符需求可以继续添加，必须转化成字符串
+          };
+          for (let k in opt) {
+            ret = new RegExp("(" + k + ")").exec(fmt);
+            if (ret) {
+              fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
+            }
+            ;
+          }
+          ;
+          return fmt;
+        }
+      }
     }
-  }
 </script>
 
 <style lang="scss" scoped>
@@ -119,7 +151,7 @@
       .content {
         flex: 1;
         height: 100%;
-        font-size: 14px;
+        font-size: 15px;
         font-family: 微软雅黑;
         color: #2b2b2b;
         font-weight: normal;
@@ -129,7 +161,7 @@
 
       .time {
         flex: 1;
-        font-size: 14px;
+        font-size: 15px;
         height: 100%;
         font-family: 微软雅黑;
         font-weight: normal;
@@ -196,6 +228,7 @@
           }
 
           .phone {
+            margin-left: 5px;
 
           }
         }

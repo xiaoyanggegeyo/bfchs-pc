@@ -10,7 +10,7 @@
           <div class="text-box">
             <div class="text1">上门回收</div>
             <div class="text2">交易无需预约，交通方便 完爆传统路边回收小店</div>
-            <div class="text3" @click="this.nowConsult()">立即咨询</div>
+            <div class="text3" @click="$router.push('/product')">立即咨询</div>
           </div>
         </b-card>
       </b-col>
@@ -109,6 +109,7 @@
       }
       .text3:hover{
         cursor: pointer;
+        color: #4ab344;
       }
     }
   }

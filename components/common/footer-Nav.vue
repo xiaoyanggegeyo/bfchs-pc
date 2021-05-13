@@ -40,15 +40,15 @@
           },
           {
             name: '回收资讯',
-            path: '/consult'
+            path: '/business'
           },
           {
             name: '回收交易',
-            path: '/deal'
+            path: '/technology'
           },
           {
             name: '联系我们',
-            path: '/contact'
+            path: '/product'
           }
         ]
       }
