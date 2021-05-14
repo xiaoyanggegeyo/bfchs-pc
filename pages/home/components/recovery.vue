@@ -4,12 +4,13 @@
       <div style="flex: 1">
         <Title :title="title" :englishTitle="englishTitle"/>
       </div>
-      <div class="getmore" @click="$router.push('/business')">了解更多>></div>
+      <div class="getmore" @click="$router.push('/technology')">了解更多>></div>
     </b-row>
     <b-row class="mx-0" style="position: relative;bottom:-60px">
       <b-col lg="3" md="6" sm="12" v-for="(item, ind) of productList" :key="ind" class="wow fadeInUp my-img-box"
              :data-wow-delay="(0.2 * ind) + 's'">
-        <b-card-img class="w-61 mx-auto d-block rounded thumbnail my-img" height="275" :src="item.icon"></b-card-img>
+        <b-card-img class="w-61 mx-auto d-block rounded thumbnail my-img" height="275" :src="item.icon"
+                    @click="$router.push('/technology')"></b-card-img>
         <div class="text-box">
           <div class="text-title" @click="NavRecoveryTrade">{{item.title}}</div>
           <div class="text-desc" @click="NavRecoveryTrade">{{item.desc}}</div>
@@ -92,6 +93,10 @@
       .my-img {
         margin-top: -25px;
         margin-bottom: 15px;
+      }
+
+      .my-img:hover {
+        cursor: pointer;
       }
     }
 

@@ -15,11 +15,11 @@
             </b-list-group-item>
           </b-list-group>
         </b-col>
-        <b-col>
+        <b-col style="margin-left: -35px;margin-top: -15px">
           <b-card v-for="(item,index) in productList" class="mb-3 wow fadeInUp my-card"
                   :data-wow-delay="(index * 0.2) + 's'"
                   style="max-width: 20rem;display:inline-block;"
-                  :key="index">
+                  :key="index" @click="getProductDetail(item)">
             <div>
             </div>
             <b-img :src="item.icon" class="img"/>
@@ -38,13 +38,14 @@
   import Title from '@/components/common/title';
   import ServerItem from '@/components/common/server-item';
   import Carousel from '@/components/index/custom-carousel';
+  import ProductDetail from '@/pages/technology/product-detail';
 
   if (process.browser) { // 在这里根据环境引入wow.js
     var {WOW} = require('wowjs')
   }
 
   export default {
-    components: {Title, ServerItem,Carousel},
+    components: {Title, ServerItem, Carousel, ProductDetail},
     data() {
       return {
         active: null,
@@ -124,6 +125,23 @@
       // 点击查看详情
       handleDetail(id) {
         this.$router.push(`/product/${id}`)
+      },
+      getProductDetail(item) {
+        console.log(this.$layer)
+        this.$layer.iframe({
+          content: {
+            content: ProductDetail,
+            parent: this,
+            data: {
+              detailsData: item
+            }
+          },
+          area: ['55%', '701px'],
+          title: '商品详情',
+          cancel: () => {
+
+          }
+        });
       }
     }
   }
@@ -174,6 +192,10 @@
       line-height: 23px;
       text-align: center;
     }
+  }
+
+  .my-card:hover {
+    cursor: pointer;
   }
 
   .wrapper {
