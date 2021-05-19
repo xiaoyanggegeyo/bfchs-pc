@@ -1,15 +1,13 @@
 <template>
-  <swiper :options="swiperOption">
-    <swiper-slide class="swiper-slide" v-for="(item,index) in bannerList" :key="index"
-                  style="height: 200px;width: 200px">
-      <img :src="item.bannerUrl" style="width: 100%;height: 100%;display: inline-block"/>
-    </swiper-slide>
-    <!-- 分页器 -->
-    <div class="swiper-pagination" slot="pagination"></div>
-  </swiper>
+  <el-carousel :interval="4000" type="card" height="30rem">
+    <el-carousel-item v-for="(item,index) in bannerList" :key="index">
+      <img :src="item.bannerUrl" class="medium" style="width: 100%;height: 100%;display: inline-block"/>
+    </el-carousel-item>
+  </el-carousel>
 </template>
 
 <script>
+
   if (process.browser) { // 在这里根据环境引入wow.js
     var {WOW} = require('wowjs')
   }
