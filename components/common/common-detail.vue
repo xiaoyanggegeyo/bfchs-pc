@@ -30,6 +30,8 @@
     width: 100%;
     height: 100%;
     .detail {
+      padding: 2rem;
+      overflow-x: paged-x-controls;
       width: 100%;
       height: 98%;
       padding: 0 .5rem;

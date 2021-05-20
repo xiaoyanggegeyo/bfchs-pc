@@ -13,12 +13,10 @@
     </div>
 
     <!-- 图片列表 -->
-    <!--    -->
     <div class="bottomBox" v-if="imgList.length != 0">
       <div class=" imgBox" v-for="(item,index) in imgList" :key="index">
         <img :src="item" alt="">
       </div>
-
     </div>
   </div>
 
@@ -47,11 +45,11 @@
       // console.log(this.detailsData)
       //遍历detailUrl数组 有逗号才分割
       if (this.detailsData.detailUrl && this.detailsData.detailUrl != null) {
-      if (this.detailsData.detailUrl.indexOf(",") != -1) {
-        this.imgList = this.detailsData.detailUrl.split(",");
-      } else {
-        this.imgList.push(this.detailsData.detailUrl);
-      }
+        if (this.detailsData.detailUrl.indexOf(",") != -1) {
+          this.imgList = this.detailsData.detailUrl.split(",");
+        } else {
+          this.imgList.push(this.detailsData.detailUrl);
+        }
       }
     }
   }

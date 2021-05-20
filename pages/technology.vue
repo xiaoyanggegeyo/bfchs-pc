@@ -1,8 +1,8 @@
 <template>
   <section class="wrapper" style="background-color:#ffffff;">
     <!--    轮播图-->
-    <carousel class="d-none d-md-block d-lg-block d-xl-block" style="height: 0; padding-bottom: 31.2%" size="big"
-              :url="require('~/static/img/banner/banner01_big.jpg')"/>
+    <carousel class="d-none d-md-block d-lg-block d-xl-block"  size="big"
+              :type="4"/>
     <!--    <carousel class="d-block d-md-none d-lg-none d-xl-none" style="height: 0; padding-bottom: 120%" size="small"/>-->
     <div class="my-container py-5">
       <Title title="环保交易" englishTitle="TRANSACTION"/>

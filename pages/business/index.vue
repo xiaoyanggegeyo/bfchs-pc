@@ -1,8 +1,8 @@
 <template>
   <section>
     <!--    轮播图-->
-    <carousel class="d-none d-md-block d-lg-block d-xl-block" style="height: 0; padding-bottom: 31.2%" size="big"
-              :url="require('~/static/img/banner/banner01_big.jpg')"/>
+    <carousel class="d-none d-md-block d-lg-block d-xl-block" size="big"
+              :type="3"/>
 
     <div class="container py-5">
       <Title title="回收咨询" englishTitle="NEWS" style="margin-bottom: 8%;margin-top: 5%"/>
@@ -22,14 +22,14 @@
                :style="index == 0 ? 'border-top: 1px solid #ccc;' : 'border-top: 1px dotted #ccc;'"
                :data-wow-delay="(0.3 * index) + 's'">
             <div class="left-box">
-<!--              <b-img class="img" :src="item.icon"></b-img>-->
-              <span></span>
-
+              <!--                            <b-img class="img" :src="item.icon"></b-img>-->
+              <div class="day">{{getTimeByDate('dd',item.createtime)}}</div>
+              <div class="year">{{getTimeByDate('YYYY-mm',item.createtime)}}</div>
             </div>
 
             <div class="right-box">
-              <div class="title" @click="showDeatil">{{item.title}}</div>
-              <div class="sub-title">{{item.desc}}</div>
+              <div class="title" @click="showDeatil(item)">{{item.title}}</div>
+              <div class="sub-title">{{item.createtime}}</div>
             </div>
           </div>
         </b-col>
@@ -46,9 +46,10 @@
   import Title from '@/components/common/title';
   import ServerItem from '@/components/common/server-item';
   import Carousel from '@/components/index/custom-carousel';
+  import newsDeatil from '@/components/common/common-detail.vue';
 
   export default {
-    components: {Title, ServerItem, Carousel},
+    components: {Title, ServerItem, Carousel, newsDeatil},
     data() {
       return {
         companyList: [
@@ -69,24 +70,24 @@
           }
         ],
         newsList: [
-          {
-            id: 1,
-            icon: require('~/static/img/business/time.png'),
-            title: '互联网+政务',
-            desc: '江务、政务管理与辅助决策以及产业支持等精细化的政务体系。'
-          },
-          {
-            id: 2,
-            icon: require('~/static/img/business/time.png'),
-            title: '互联网+企业',
-            desc: '系统，在企业推行先进的管理理念，使采购、销售、生产、质量、财务、成本等业务整合贯通，协同运作，使企业管理更加透明化、精细化和规范化。'
-          },
-          {
-            id: 3,
-            icon: require('~/static/img/business/time.png'),
-            title: '智慧城市（城市治理）',
-            desc: '通理智慧化、精细化，为城市智慧化管理提供技术保障保障 城市重大活动安全，提升城市全方位掌控能力，提高应急事件决策效率，实现事前事中事后的全流程跟踪处理，防范于未然。'
-          }
+          // {
+          //   id: 1,
+          //   icon: require('~/static/img/business/time.png'),
+          //   title: '互联网+政务',
+          //   desc: '江务、政务管理与辅助决策以及产业支持等精细化的政务体系。'
+          // },
+          // {
+          //   id: 2,
+          //   icon: require('~/static/img/business/time.png'),
+          //   title: '互联网+企业',
+          //   desc: '系统，在企业推行先进的管理理念，使采购、销售、生产、质量、财务、成本等业务整合贯通，协同运作，使企业管理更加透明化、精细化和规范化。'
+          // },
+          // {
+          //   id: 3,
+          //   icon: require('~/static/img/business/time.png'),
+          //   title: '智慧城市（城市治理）',
+          //   desc: '通理智慧化、精细化，为城市智慧化管理提供技术保障保障 城市重大活动安全，提升城市全方位掌控能力，提高应急事件决策效率，实现事前事中事后的全流程跟踪处理，防范于未然。'
+          // }
         ]
       }
     },
@@ -94,11 +95,49 @@
       if (process.browser) {  // 在页面mounted生命周期里面 根据环境实例化WOW
         new WOW({}).init()
       }
+      this.getCompanyList();
     },
     methods: {
+      getCompanyList() {
+        this.$axios.post('/commom/getCompanyList').then(res => {
+          this.newsList = res.data.data.list;
+        })
+      },
+      /**
+       * 获取时间片段 根据时间
+       */
+      getTimeByDate(flag, date) {
+        var tempTime = '';
+        if (date && date != null && date != '') {
+          var tempDay = date;
+          var day = new String(tempDay);
+          var year = new Date(date);
+          if (flag == 'dd') {
+            var tempdate = new String(day.split('-')[2]);
+            tempTime = tempdate.split(' ')[0]
+          } else if (flag == 'YYYY-mm') {
+            var month = year.getMonth() + 1;
+            tempTime = year.getFullYear() + '-' + month;
+          }
+        }
+        return tempTime;
+      },
       //TODO 显示详情
-      showDeatil() {
+      showDeatil(item) {
+        this.$layer.iframe({
+          content: {
+            content: newsDeatil,
+            parent: this,
+            data: {
+              detailsData: item
+            }
+          },
+          area: ['80%', '80%'],
+          title: item.title,
+          cancel: () => {
 
+          }
+        });
       }
     }
   }
@@ -144,19 +183,26 @@
     padding-top: 5%;
 
     .left-box {
-      flex: 1;
-      width: 48px;
-      height: 48px;
-      background-color: #cccccc;
+      width: 88px;
+      height: 88px;
+      background-color: #f5f5f5;
+      padding-top: .5rem;
 
-      /*.img {*/
+      .day {
+        text-align: center;
+        font-size: 2rem;
+      }
 
-      /*}*/
+      .year {
+        text-align: center;
+      }
 
     }
 
     .right-box {
       flex: 5;
+      padding-top: .8rem;
+      padding-left: .8rem;
 
       .title {
         font-size: 16px;

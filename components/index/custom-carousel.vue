@@ -1,9 +1,7 @@
 <template>
   <b-carousel v-model="slide" fade indicators background="#ababab"
               style="text-shadow: 1px 1px 2px #333; background: #ccc">
-    <b-img fluid
-           :src="size=='big' ? url : ''"
-           alt="banner"/>
+    <img :src="url" alt="" style="height: 32rem">
   </b-carousel>
 </template>
 
@@ -15,11 +13,11 @@
   export default {
     name: 'custom-carousel',
     props: {
-      size: {
+      type: {
         type: String,
         default: ''
       },
-      url: {   //动态传入图片url
+      size: {
         type: String,
         default: ''
       }
@@ -27,15 +25,24 @@
     data() {
       return {
         slide: 0,
-        sliding: null
+        sliding: null,
+        url: ''
       }
     },
     mounted() {
       if (process.browser) {  // 在页面mounted生命周期里面 根据环境实例化WOW
         new WOW({}).init()
       }
+      this.getBannerList();
     },
     methods: {
+      getBannerList() {
+        this.$axios.post('/banner/getActiveAd?type=' + this.type).then(res => {
+          this.url = res.data.data[0].bannerUrl;
+        }).catch(err => {
+
+        })
+      },
       onSlideStart(slide) {
         this.sliding = true
       },
