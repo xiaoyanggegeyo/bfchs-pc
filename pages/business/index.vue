@@ -3,43 +3,17 @@
     <!--    轮播图-->
     <carousel class="d-none d-md-block d-lg-block d-xl-block" style="height: 0; padding-bottom: 31.2%" size="big"
               :url="require('~/static/img/banner/banner01_big.jpg')"/>
-    <!--    <carousel class="d-block d-md-none d-lg-none d-xl-none" style="height: 0; padding-bottom: 120%" size="small"/>-->
-
 
     <div class="container py-5">
       <Title title="回收咨询" englishTitle="NEWS" style="margin-bottom: 8%;margin-top: 5%"/>
       <b-row>
-
-
         <b-col style="display: flex">
-          <div v-for="(item,index) in productList" :key="index" class="wow fadeInUp product-box"
+          <div v-for="(item,index) in companyList" :key="index" class="wow fadeInUp product-box"
                :data-wow-delay="(0.2 * index) + 's'">
             <b-img class="img" :src="item.icon"></b-img>
             <div class="text">{{item.title}}</div>
           </div>
         </b-col>
-
-        <!--        <b-col cols="10" offset="1">-->
-        <!--          <b-card no-body class="mb-5" v-for="(item, index) of productList" :key="index">-->
-        <!--            <b-row class="content" no-gutters>-->
-        <!--              <i class="top"></i>-->
-        <!--              <i class="bottom"></i>-->
-        <!--              <b-col md="5" :data-wow-delay="(0.2 * index) + 's'" :offset-md="index === 1 ? 1 : 0"-->
-        <!--                     :order="index == 1 ? 1 : 0">-->
-        <!--                <b-card-img :src="item.icon" height="300" fluid class="rounded-0 picture"-->
-        <!--                            :class="{special: index == 1}"></b-card-img>-->
-        <!--              </b-col>-->
-        <!--              <b-col :data-wow-delay="(0.2 * index) + 's'" :offset-md="index === 1 ? 0 : 1" md="6"-->
-        <!--                     :order="index == 1 ? 0 : 1">-->
-        <!--                <b-card-body class="h-100 d-flex justify-content-center align-items-center flex-column text-center">-->
-        <!--                  <b-card-title>{{item.title}}</b-card-title>-->
-        <!--                  <b-card-text class="w-100">{{item.desc}}</b-card-text>-->
-        <!--                  <b-button variant="outline-info" @click="$router.push('/business/'+item.id)">查看详情</b-button>-->
-        <!--                </b-card-body>-->
-        <!--              </b-col>-->
-        <!--            </b-row>-->
-        <!--          </b-card>-->
-        <!--        </b-col>-->
       </b-row>
       <b-row>
         <!--        列表-->
@@ -48,7 +22,9 @@
                :style="index == 0 ? 'border-top: 1px solid #ccc;' : 'border-top: 1px dotted #ccc;'"
                :data-wow-delay="(0.3 * index) + 's'">
             <div class="left-box">
-              <b-img class="img" :src="item.icon"></b-img>
+<!--              <b-img class="img" :src="item.icon"></b-img>-->
+              <span></span>
+
             </div>
 
             <div class="right-box">
@@ -75,7 +51,7 @@
     components: {Title, ServerItem, Carousel},
     data() {
       return {
-        productList: [
+        companyList: [
           {
             id: 1,
             icon: require('~/static/img/business/business01.jpg'),
@@ -138,10 +114,16 @@
     display: inline-block;
     padding: 0 20px;
 
-    .img {
-      flex: 4;
-      width: 300px;
-      height: 200px;
+    /*.img {*/
+    /*  flex: 4;*/
+    /*  width: 300px;*/
+    /*  height: 200px;*/
+
+    /*}*/
+    .time-box {
+      width: 84px;
+      height: 84px;
+      background-color: #cccccc;
 
     }
 
@@ -165,10 +147,11 @@
       flex: 1;
       width: 48px;
       height: 48px;
+      background-color: #cccccc;
 
-      .img {
+      /*.img {*/
 
-      }
+      /*}*/
 
     }
 

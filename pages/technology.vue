@@ -7,26 +7,29 @@
     <div class="my-container py-5">
       <Title title="环保交易" englishTitle="TRANSACTION"/>
       <b-row class="mx-0" style="margin-top: 60px;margin-bottom: -80px;">
-        <b-col lg="3" md="6" sm="12" order="1" order-md="0" class="mb-4 wow slideInLeft">
-          <b-list-group style="width: 200px">
-            <b-list-group-item class="bg-muted" v-for="(item, index) of tabList" :key="index" :active="active == index"
-                               style="height: 80px;line-height: 65px;"
-                               @click="handleTabClick(index)">{{item}}
-            </b-list-group-item>
-          </b-list-group>
-        </b-col>
-        <b-col style="margin-left: -35px;margin-top: -15px">
+        <!--        <b-col lg="3" md="6" sm="12" order="1" order-md="0" class="mb-4 wow slideInLeft">-->
+        <!--          <b-list-group style="width: 200px">-->
+        <!--            <b-list-group-item class="bg-muted" v-for="(item, index) of tabList" :key="index" :active="active == index"-->
+        <!--                               style="height: 80px;line-height: 65px;"-->
+        <!--                               @click="handleTabClick(index)">{{item.title}}-->
+        <!--            </b-list-group-item>-->
+        <!--          </b-list-group>-->
+        <!--        </b-col>-->
+
+        <b-col>
           <b-card v-for="(item,index) in productList" class="mb-3 wow fadeInUp my-card"
                   :data-wow-delay="(index * 0.2) + 's'"
                   style="max-width: 20rem;display:inline-block;"
                   :key="index" @click="getProductDetail(item)">
             <div>
             </div>
-            <b-img :src="item.icon" class="img"/>
-            <div class="title">{{item.title}}</div>
-            <div class="my-desc">￥{{item.desc}}</div>
+            <b-img :src="item.picUrl" class="img"/>
+            <div class="title">{{item.name}}</div>
+            <div class="my-desc">￥{{item.subtitle}}</div>
           </b-card>
         </b-col>
+
+
       </b-row>
     </div>
     <ServerItem style="margin-bottom: -40px"/>
@@ -38,52 +41,22 @@
   import Title from '@/components/common/title';
   import ServerItem from '@/components/common/server-item';
   import Carousel from '@/components/index/custom-carousel';
-  import ProductDetail from '@/pages/technology/product-detail';
+  // import ProductDetail from '@/pages/technology/product-detail';
+  import ExampleDeatile from '@/components/common/example-details.vue';
 
   if (process.browser) { // 在这里根据环境引入wow.js
     var {WOW} = require('wowjs')
   }
 
   export default {
-    components: {Title, ServerItem, Carousel, ProductDetail},
+    components: {Title, ServerItem, Carousel, ExampleDeatile},
     data() {
       return {
         active: null,
         list: [],
         imgList: [{src: require('~/static/img/product/coor.png')}, {src: require('~/static/img/product/phone.png')}, {src: require('~/static/img/product/dyj.png')}],
-        tabList: ['热门交易', '实用家电', '以旧换新'],
-        productList: [
-          {
-            id: 1,
-            icon: require('~/static/img/product/product01.jpg'),
-            title: '专有云解决方案',
-            desc: '8521'
-          },
-          {
-            id: 2,
-            icon: require('~/static/img/product/product02.jpg'),
-            title: '混合云解决方案',
-            desc: '8524'
-          },
-          {
-            id: 3,
-            icon: require('~/static/img/product/product03.jpg'),
-            title: '大数据解决方案',
-            desc: '8521'
-          },
-          {
-            id: 4,
-            icon: require('~/static/img/product/product04.jpg'),
-            title: '数据共享交换解决方案',
-            desc: '123'
-          },
-          {
-            id: 5,
-            icon: require('~/static/img/product/product05.jpg'),
-            title: '大数据工作台',
-            desc: '2563'
-          }
-        ]
+        tabList: [],
+        productList: []
       }
     },
     watch: {
@@ -97,9 +70,30 @@
     },
     mounted() {
       this.active = this.subNavIndex
-      this.getList()
+      this.getList();
+      /**
+       * 获取左侧导航列表
+       */
+      // this.getGoodsClassList();
+      /**
+       * 获取商品列表
+       */
+      this.getGoodsList();
+
     },
     methods: {
+      // getGoodsClassList() {
+      //   this.$axios.post('/commom/getGoodsClassList').then(res => {
+      //     if (res.data.code == 200) {
+      //       this.tabList = res.data.data.list;
+      //     }
+      //   })
+      // },
+      getGoodsList() {
+        this.$axios.post("/commom/getGoodsList?pageNo=1&pageSize=100&classId=1").then(res => {
+          this.productList = res.data.data.items;
+        })
+      },
       // 筛选列表
       getList() {
         switch (Number(this.active)) {
@@ -126,18 +120,23 @@
       handleDetail(id) {
         this.$router.push(`/product/${id}`)
       },
+      // getGoodsList() {
+      //   this.$axios.post('/commom/getGoodsList?pageNo=1&pageSize=10&classId=4').then(res => {
+      //
+      //   })
+      // },
       getProductDetail(item) {
         console.log(this.$layer)
         this.$layer.iframe({
           content: {
-            content: ProductDetail,
+            content: ExampleDeatile,
             parent: this,
             data: {
               detailsData: item
             }
           },
           area: ['55%', '701px'],
-          title: '商品详情',
+          title: '交易详情',
           cancel: () => {
 
           }
@@ -177,7 +176,13 @@
     .img {
       width: 250px;
       height: 150px;
+      border-radius: .7rem;
     }
+
+    /*.img:hover {*/
+    /*  transition: all 3.2s;*/
+    /*  transform: scale(1.15)*/
+    /*}*/
 
     .title {
       color: #666666;

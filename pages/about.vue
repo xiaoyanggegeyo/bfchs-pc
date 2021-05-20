@@ -36,14 +36,7 @@
 
     <div class="container">
       <Title title="常见问题" englishTitle="QUESTION" style="margin-bottom: 3%;margin-top: 5%"/>
-
-      <div class="nav-box">
-        <span class="nav">Button</span>
-        <span class="nav">Button</span>
-        <span class="nav">Button</span>
-      </div>
-
-      <b-row>
+      <b-row style="margin-top: -6rem">
         <!--        列表-->
         <b-col>
           <div class=" wow fadeInUp list-box" v-for="(item,index) in newsList" :key="index"
