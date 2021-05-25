@@ -117,12 +117,12 @@
 
     .text-box {
       position: absolute;
-      top: -1.7rem;
+      top: -1.8rem;
       z-index: 2;
       font-size: 18px;
       color: #fff;
       width: 89.5%;
-      height: 103%;
+      height: 104%;
       padding-top: 42%;
       text-align: center;
       overflow: hidden;
