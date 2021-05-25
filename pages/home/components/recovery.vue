@@ -117,14 +117,18 @@
 
     .text-box {
       position: absolute;
-      top: 1px;
+      top: -1.7rem;
       z-index: 2;
       font-size: 18px;
       color: #fff;
-      top: 45%;
-      width: 100%;
+      width: 89.5%;
+      height: 103%;
+      padding-top: 42%;
       text-align: center;
       overflow: hidden;
+      background-color: #000000;
+      opacity: 0.7;
+      border-radius: .5rem;
 
       .text-title:hover {
         cursor: pointer;

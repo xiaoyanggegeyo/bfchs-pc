@@ -2,7 +2,7 @@
   <section>
     <!--    轮播图-->
     <carousel class="d-none d-md-block d-lg-block d-xl-block" size="big"
-              :type="3"/>
+              type="3"/>
 
     <div class="container py-5">
       <Title title="回收动态" englishTitle="NEWS" style="margin-bottom: 8%;margin-top: 5%"/>
@@ -10,7 +10,7 @@
         <b-col style="display: flex">
           <div v-for="(item,index) in companyList" :key="index" class="wow fadeInUp product-box"
                :data-wow-delay="(0.2 * index) + 's'">
-            <b-img class="img" :src="item.icon"></b-img>
+            <b-img class="img" :src="item.icon" style="border-radius: .5rem"></b-img>
             <div class="text">{{item.title}}</div>
           </div>
         </b-col>
@@ -28,7 +28,7 @@
             </div>
 
             <div class="right-box">
-              <div class="title" @click="showDeatil(item)">{{item.title}}</div>
+              <div class="title">{{item.title}}</div>
               <div class="sub-title">{{item.createtime}}</div>
             </div>
           </div>
@@ -76,12 +76,12 @@
       if (process.browser) {  // 在页面mounted生命周期里面 根据环境实例化WOW
         new WOW({}).init()
       }
-      this.getCompanyList();
+      this.getNewsList();
     },
     methods: {
-      getCompanyList() {
-        this.$axios.post('/commom/getCompanyList').then(res => {
-          this.newsList = res.data.data.list;
+      getNewsList() {
+        this.$axios.post('/commom/getInformationList?pageNo=1&pageSize=40').then(res => {
+          this.newsList = res.data.data.items;
         })
       },
       /**
@@ -102,23 +102,6 @@
           }
         }
         return tempTime;
-      },
-      //TODO 显示详情
-      showDeatil(item) {
-        // this.$layer.iframe({
-        //   content: {
-        //     content: newsDeatil,
-        //     parent: this,
-        //     data: {
-        //       detailsData: item
-        //     }
-        //   },
-        //   area: ['80%', '80%'],
-        //   title: item.title,
-        //   cancel: () => {
-        //
-        //   }
-        // });
       }
     }
   }

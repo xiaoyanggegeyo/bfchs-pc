@@ -223,7 +223,7 @@
   }
 
   /deep/ .nav-link {
-    color: #fff !important;
+    color: #333333 !important;
   }
 
   /deep/ .navbar {
