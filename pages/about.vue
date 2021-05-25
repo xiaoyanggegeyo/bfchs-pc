@@ -20,8 +20,9 @@
                      :order="index == 1 ? 0 : 1">
                 <b-card-body class="h-100 d-flex justify-content-center align-items-center flex-column text-center">
                   <b-card-text class="w-100">
-                    贵阳专业收报废车中心：收报废车电话：15208592811刘先生 &nbsp&nbsp&nbsp&nbsp
-                    &nbsp&nbsp  是交管局指定的报废车专业解体厂！专业从事老旧机动车，事故车的报废解体业务。可办理各单位个人及部队退役的报废汽车解体，负责办理正规的报废手续，以快捷便利的方式为你解决车辆报废过程中的困难，本中心实力雄厚拆解设备齐全，具有大批量拆解车辆的能力，且价格合理，因此与多家单位和个人建立了良好的业务关系，我们真诚地恭候广大企业和个人前来咨询洽谈，我们愿为您耐心热情的服务。
+                    贵阳专业收报废车中心：收报废车电话：15628008678刘先生 &nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp
+                    是交管局指定的报废车专业解体厂！专业从事老旧机动车，事故车的报废解体业务。可办理各单位个人及部队退役的报废汽车解体，负责办理正规的报废手续，以快捷便利的方式为你解决车辆报废过程中的困难，本中心实力雄厚拆解设备齐全，具有大批量拆解车辆的能力，且价格合理，因此与多家单位和个人建立了良好的业务关系，我们真诚地恭候广大企业和个人前来咨询洽谈，我们愿为您耐心热情的服务。
                   </b-card-text>
                 </b-card-body>
               </b-col>
@@ -33,20 +34,20 @@
 
     <Recovery/>
 
-    <div class="container">
-      <Title title="常见问题" englishTitle="QUESTION" style="margin-bottom: 3%;margin-top: 5%"/>
-      <b-row style="margin-top: -6rem">
-        <!--        列表-->
-        <b-col>
-          <div class=" wow fadeInUp list-box" v-for="(item,index) in newsList" :key="index"
-               :style="index == newsList.length - 1 ? '' : 'border-bottom: 1px dotted #ccc;'"
-               :data-wow-delay="(0.3 * index) + 's'">
-            <div class="title" @click="showDeatil">{{item.title}}</div>
-            <div class="sub-title">{{item.desc}}</div>
-          </div>
-        </b-col>
-      </b-row>
-    </div>
+<!--    <div class="container">-->
+<!--      <Title title="常见问题" englishTitle="QUESTION" style="margin-bottom: 3%;margin-top: 5%"/>-->
+<!--      <b-row style="margin-top: -6rem">-->
+<!--        &lt;!&ndash;        列表&ndash;&gt;-->
+<!--        <b-col>-->
+<!--          <div class=" wow fadeInUp list-box" v-for="(item,index) in questionList" :key="index"-->
+<!--               :style="index == newsList.length - 1 ? '' : 'border-bottom: 1px dotted #ccc;'"-->
+<!--               :data-wow-delay="(0.3 * index) + 's'">-->
+<!--            <div class="title" @click="showDeatil">{{item.title}}</div>-->
+<!--            <div class="sub-title">{{item.desc}}</div>-->
+<!--          </div>-->
+<!--        </b-col>-->
+<!--      </b-row>-->
+<!--    </div>-->
 
     <ServerItem/>
   </section>
@@ -59,32 +60,53 @@
   import Title from '@/components/common/title';
   import ServerItem from '@/components/common/server-item';
   import Recovery from '@/pages/home/components/recovery';
-  import Carousel from '@/components/index/custom-carousel'
+  import Carousel from '@/components/index/custom-carousel';
+  import CommonDetail from '@/components/common/common-detail';
 
 
   export default {
     name: 'about',
-    components: {Title, Recovery, ServerItem, Carousel},
+    components: {Title, Recovery, ServerItem, Carousel, CommonDetail},
     data() {
       return {
         productList: [
           {
             id: 1,
-            icon: require('~/static/img/business/business01.jpg'),
-            title: '互联网+政务场为基网的务进行'
+            icon: require('~/static/img/business/b04.png'),
+            title: '互联网政务场为基网的务进行'
           }
         ],
         newsList: [
           {
             id: 1,
             icon: require('~/static/img/business/time.png'),
-            title: '互联网+政务',
+            title: '互联网政务',
             desc: '江务、政务管理与辅助决策以及产业支持等精细化的政务体系。'
           },
           {
             id: 2,
             icon: require('~/static/img/business/time.png'),
-            title: '互联网+企业',
+            title: '互联网企业',
+            desc: '系统，在企业推行先进的管理理念，使采购、销售、生产、质量、财务、成本等业务整合贯通，协同运作，使企业管理更加透明化、精细化和规范化。'
+          },
+          {
+            id: 3,
+            icon: require('~/static/img/business/time.png'),
+            title: '智慧城市（城市治理）',
+            desc: '通理智慧化、精细化，为城市智慧化管理提供技术保障保障 城市重大活动安全，提升城市全方位掌控能力，提高应急事件决策效率，实现事前事中事后的全流程跟踪处理，防范于未然。'
+          }
+        ],
+        questionList: [
+          {
+            id: 1,
+            icon: require('~/static/img/business/time.png'),
+            title: '互联网政务',
+            desc: '江务、政务管理与辅助决测试支持等精细化的政务体系。'
+          },
+          {
+            id: 2,
+            icon: require('~/static/img/business/time.png'),
+            title: '互联网企业',
             desc: '系统，在企业推行先进的管理理念，使采购、销售、生产、质量、财务、成本等业务整合贯通，协同运作，使企业管理更加透明化、精细化和规范化。'
           },
           {
@@ -102,8 +124,23 @@
       }
     },
     methods: {
-      //
-      showDeatil() {
+      //常见问题详情
+      showDeatil(item) {
+        // this.$layer.iframe({
+        //   content: {
+        //     content: CommonDetail,
+        //     parent: this,
+        //     data: {
+        //       detailsData: item
+        //     }
+        //   },
+        //   area: ['80%', '80%'],
+        //   title: item.title,
+        //   cancel: () => {
+        //
+        //   }
+        // });
+
 
       }
     }

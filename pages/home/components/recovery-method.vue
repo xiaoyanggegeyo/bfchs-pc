@@ -1,6 +1,6 @@
 <template>
   <my-slot :showBgColor="true" :showTopLine="false" style=" height: 334px;">
-    <Title title="多样化回收方式" englishTitle="RECYCLING MODE" style="margin-bottom: 80px"/>
+    <Title title="  多样回收 一站式服务" englishTitle="RECYCLING MODE" style="margin-bottom: 80px"/>
     <b-row class="mx-0">
       <b-col lg="4" md="6" sm="12" v-for="(item, ind) of productList" :key="ind" class="wow fadeInUp"
              :data-wow-delay="(0.2 * ind) + 's'">
@@ -8,8 +8,8 @@
           <b-img :src="item.icon" rounded="circle" alt="Circle image" thumbnail
                  style="width: 100px;height: 100px;margin-top: -70px;margin-left: 100px"></b-img>
           <div class="text-box">
-            <div class="text1">上门回收</div>
-            <div class="text2">交易无需预约，交通方便 完爆传统路边回收小店</div>
+            <div class="text1">{{item.title}}</div>
+            <div class="text2">{{item.desc}}</div>
             <div class="text3" @click="$router.push('/product')">立即咨询</div>
           </div>
         </b-card>
@@ -33,21 +33,21 @@
         productList: [
           {
             id: 1,
-            icon: require('~/static/img/business/business01.jpg'),
-            title: '互联网+政务',
-            desc: '江苏蚂蚁云以阿里、数梦工场为基础，将互联网的能力与政务进行创新融合，在流程优化的基础上，引入以资源集约共享、弹性伸缩、极致体验、敏捷支撑为特征的互联网技术，从而实现政务便民服务、政务管理与辅助决策以及产业支持等精细化的政务体系。'
+            icon: require('~/static/img/business/b01.png'),
+            title: '上门回收',
+            desc: '是车就回收，买有要求，可以上门看车'
           },
           {
             id: 2,
-            icon: require('~/static/img/business/business02.jpg'),
-            title: '互联网+企业',
-            desc: '以卓越绩效管理为目标，引入全局的、整体的、一贯的管理理念，打造“产供销一体、管控衔接、高效协同、三流合一”的管理信息系统，在企业推行先进的管理理念，使采购、销售、生产、质量、财务、成本等业务整合贯通，协同运作，使企业管理更加透明化、精细化和规范化。'
+            icon: require('~/static/img/business/b02.png'),
+            title: '免费拖车',
+            desc: '免费拖车，事故车僵尸车水淹车都可以进行托运'
           },
           {
             id: 3,
-            icon: require('~/static/img/business/business03.jpg'),
-            title: '智慧城市（城市治理）',
-            desc: '通过政务外网打通各委办局网络，集成综治大联动、智慧交运、智慧公交、智慧水务等业务系统的整屏、高分、关联展示。感知城市状态，实现城市实时的数据采集与分析处理，让城市管理智慧化、精细化，为城市智慧化管理提供技术保障保障 城市重大活动安全，提升城市全方位掌控能力，提高应急事件决策效率，实现事前事中事后的全流程跟踪处理，防范于未然。'
+            icon: require('~/static/img/business/b03.png'),
+            title: '包销货',
+            desc: '免费的帮助客户销户无需去交管局处理'
           }
         ],
         mainProps: {blank: true, blankColor: '#777', width: 75, height: 75, class: 'm1'}   //原型图片配置

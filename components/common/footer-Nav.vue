@@ -43,7 +43,7 @@
             path: '/business'
           },
           {
-            name: '回收交易',
+            name: '汽车交易',
             path: '/technology'
           },
           {

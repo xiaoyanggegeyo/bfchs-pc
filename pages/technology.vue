@@ -5,7 +5,7 @@
               :type="4"/>
     <!--    <carousel class="d-block d-md-none d-lg-none d-xl-none" style="height: 0; padding-bottom: 120%" size="small"/>-->
     <div class="my-container py-5">
-      <Title title="环保交易" englishTitle="TRANSACTION"/>
+      <Title title="汽车交易" englishTitle="TRANSACTION"/>
       <b-row class="mx-0" style="margin-top: 60px;margin-bottom: -80px;">
         <!--        <b-col lg="3" md="6" sm="12" order="1" order-md="0" class="mb-4 wow slideInLeft">-->
         <!--          <b-list-group style="width: 200px">-->

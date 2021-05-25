@@ -3,8 +3,8 @@
     <b-row class="mx-0">
 
       <b-col lg="7" md="12" sm="12" class="wow slideInLeft">
-        <Title title="环保动态" englishTitle="NEWS"/>
-        <b-img fluid :src="require('~/static/img/about/about01.jpg')"
+        <Title title="回收动态" englishTitle="NEWS"/>
+        <b-img fluid :src="require('~/static/img/about/about02.png')"
                style="height: 130px;width: 600px;margin-top: 20px"></b-img>
         <div class="leftNewsBox">
           <div class="NewsItem " v-for="(item,index) in newsList" :key="index" @click="getNewsDeatil(item)"
@@ -16,19 +16,19 @@
       </b-col>
 
       <b-col lg="5" md="12" sm="12" class="wow slideInRight">
-        <Title title="全新交易" englishTitle="LATEST DEAL"/>
+        <Title title="汽车交易" englishTitle="LATEST DEAL"/>
         <div class="rightProductBox">
           <div class="item" v-for="(item,index) in exampleList" :key="index" @click="getExampleDeatil(item)"
                :style="index == exampleList.length - 1 ? '' : 'border-bottom: 1px solid #dbeaef'">
             <div class="leftBox">
               <div class="product-name">{{item.name}}</div>
               <div class="product-price">
-                <span class="price-text">回收价</span>
+                <span class="price-text">高价回收</span>
                 <span class="price">￥{{item.subtitle}}</span>
               </div>
               <div class="time-phone">
                 <span class="time">{{dateFormat('YYYY-mm-dd HH:MM:SS',new Date())}}</span>
-                <span class="phone">152-0859-2811</span>
+                <span class="phone">156-2800-8678</span>
               </div>
             </div>
             <div class="rightBox">

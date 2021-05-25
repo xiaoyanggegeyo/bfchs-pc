@@ -5,7 +5,7 @@
               :type="3"/>
 
     <div class="container py-5">
-      <Title title="回收咨询" englishTitle="NEWS" style="margin-bottom: 8%;margin-top: 5%"/>
+      <Title title="回收动态" englishTitle="NEWS" style="margin-bottom: 8%;margin-top: 5%"/>
       <b-row>
         <b-col style="display: flex">
           <div v-for="(item,index) in companyList" :key="index" class="wow fadeInUp product-box"
@@ -55,40 +55,21 @@
         companyList: [
           {
             id: 1,
-            icon: require('~/static/img/business/business01.jpg'),
-            title: '互联网+政务场为基网的务进行'
+            icon: require('~/static/img/business/tchs.png'),
+            title: '拖车现场'
           },
           {
             id: 2,
-            icon: require('~/static/img/business/business02.jpg'),
-            title: '互联网+企业场为力行'
+            icon: require('~/static/img/business/esc.png'),
+            title: '二手车回收'
           },
           {
             id: 3,
-            icon: require('~/static/img/business/business03.jpg'),
-            title: '智慧城市（，将互联网务进行'
+            icon: require('~/static/img/business/gdc.png'),
+            title: '高端车（玛莎拉蒂 劳斯莱斯 宾利）'
           }
         ],
-        newsList: [
-          // {
-          //   id: 1,
-          //   icon: require('~/static/img/business/time.png'),
-          //   title: '互联网+政务',
-          //   desc: '江务、政务管理与辅助决策以及产业支持等精细化的政务体系。'
-          // },
-          // {
-          //   id: 2,
-          //   icon: require('~/static/img/business/time.png'),
-          //   title: '互联网+企业',
-          //   desc: '系统，在企业推行先进的管理理念，使采购、销售、生产、质量、财务、成本等业务整合贯通，协同运作，使企业管理更加透明化、精细化和规范化。'
-          // },
-          // {
-          //   id: 3,
-          //   icon: require('~/static/img/business/time.png'),
-          //   title: '智慧城市（城市治理）',
-          //   desc: '通理智慧化、精细化，为城市智慧化管理提供技术保障保障 城市重大活动安全，提升城市全方位掌控能力，提高应急事件决策效率，实现事前事中事后的全流程跟踪处理，防范于未然。'
-          // }
-        ]
+        newsList: []
       }
     },
     mounted() {
@@ -124,20 +105,20 @@
       },
       //TODO 显示详情
       showDeatil(item) {
-        this.$layer.iframe({
-          content: {
-            content: newsDeatil,
-            parent: this,
-            data: {
-              detailsData: item
-            }
-          },
-          area: ['80%', '80%'],
-          title: item.title,
-          cancel: () => {
-
-          }
-        });
+        // this.$layer.iframe({
+        //   content: {
+        //     content: newsDeatil,
+        //     parent: this,
+        //     data: {
+        //       detailsData: item
+        //     }
+        //   },
+        //   area: ['80%', '80%'],
+        //   title: item.title,
+        //   cancel: () => {
+        //
+        //   }
+        // });
       }
     }
   }
@@ -167,7 +148,7 @@
     }
 
     .text {
-      width: 300px;
+      width: 100%;
       margin-top: 10px;
       flex: 1;
       color: #2B2B2B;

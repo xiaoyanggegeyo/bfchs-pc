@@ -3,7 +3,7 @@
     <b-row class="mx-0">
 <!--      <b-col lg="4" md="6" sm="12" v-for="(item, ind) of productList" :key="ind" class="wow fadeInUp"-->
 <!--             :data-wow-delay="(0.2 * ind) + 's'">-->
-<!--        <Title title="回收咨询" englishTitle='NEWS'/>-->
+<!--        <Title title="回收动态" englishTitle='NEWS'/>-->
 <!--        <b-img></b-img>-->
 <!--        <b-dd-text></b-dd-text>-->
 

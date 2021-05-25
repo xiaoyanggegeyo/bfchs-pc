@@ -1,12 +1,12 @@
 <template>
   <div>
     <!--    轮播图-->
-    <carousel class="d-none d-md-block d-lg-block d-xl-block"  size="big"/>
+    <carousel class="d-none d-md-block d-lg-block d-xl-block"  size="big" style="margin-top: 7rem"/>
     <!--    banner下面回收展示块-->
     <Exhibition/>
-    <!--    环保回收模块-->
+    <!--    高价回收模块-->
     <Recovery/>
-    <!--    环保动态 和 全新交易-->
+    <!--    回收动态 和 汽车交易-->
     <Dynamicdeal/>
     <!--    回收方式-->
     <RecoveryMethod style="margin-bottom: 5%"/>

@@ -13,19 +13,19 @@
         </b-col>
         <b-col lg="6" class="d-none d-lg-block" style="display: flex; flex-direction: column;">
           <div class="item-box" style="flex: 1;display: flex;">
-            <b-card-img :src=this.imgList[4].src style="width: 60px;height: 60px"></b-card-img>
-            <div class="text-box">联系人： 贵州省贵阳市</div>
+            <b-card-img :src=this.imgList[4].src style="width: 30px;height: 30px;margin-top:1.2rem"></b-card-img>
+            <div class="text-box">联系人： 刘先生</div>
           </div>
           <div class="item-box" style="flex: 1;display: flex;">
-            <b-card-img :src=this.imgList[0].src style="width: 60px;height: 60px"></b-card-img>
+            <b-card-img :src=this.imgList[0].src style="width: 30px;height: 30px;margin-top:1.2rem"></b-card-img>
             <div class="text-box">公司地址： 贵州省贵阳市</div>
           </div>
           <div class="item-box" style="flex: 1;display: flex;">
-            <b-card-img :src=this.imgList[1].src style="width: 60px;height: 60px"></b-card-img>
-            <div class="text-box" style="">联系电话： 15208592811</div>
+            <b-card-img :src=this.imgList[1].src style="width: 30px;height: 30px;margin-top:1.2rem"></b-card-img>
+            <div class="text-box" style="">联系电话： 15628008678</div>
           </div>
           <div class="item-box" style="flex: 1;display: flex;">
-            <b-card-img :src=this.imgList[2].src style="width: 60px;height: 60px"></b-card-img>
+            <b-card-img :src=this.imgList[2].src style="width: 30px;height: 30px;margin-top:1.2rem"></b-card-img>
             <div class="text-box">联系邮箱：v185-7517-6400@15dwq.uu.me</div>
           </div>
         </b-col>
@@ -109,7 +109,7 @@
 
     .text-box {
       flex: 3;
-      font-size: 15px;
+      font-size: 20px;
       color: rgb(102, 102, 102);
       line-height: 5rem;
     }

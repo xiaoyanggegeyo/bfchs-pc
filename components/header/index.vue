@@ -13,7 +13,7 @@
         <b-collapse id="nav-collapse" is-nav v-model="showCollaps">
           <b-navbar-nav class="ml-auto">
             <template v-for="(item, index) of navBarList" :Key="index">
-              <b-nav-item v-if="item.children.length <= 0" style="margin: 0 10px;font-size:17px"
+              <b-nav-item v-if="item.children.length <= 0" style="margin: 0 10px;font-size:17px;"
                           :to="item.link" :active="$route.path === item.link">
                 {{item.nav}}
               </b-nav-item>
@@ -57,14 +57,14 @@
             ]
           },
           {
-            nav: '回收咨询', link: '/business', children: [
+            nav: '回收动态', link: '/business', children: [
               // {nav: '互联网+政务', link: '/business/1', children: []},
               // {nav: '互联网+企业', link: '/business/2', children: []},
               // {nav: '智慧城市', link: '/business/3', children: []}
             ]
           },
           {
-            nav: '回收交易', link: '/technology', children: [
+            nav: '汽车交易', link: '/technology', children: [
               // {nav: '服务理念', link: '/technology', children: []},
               // {nav: '服务体系', link: '/technology', children: []},
               // {nav: '在线反馈', link: '/technology', children: []}

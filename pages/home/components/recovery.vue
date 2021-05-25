@@ -33,30 +33,30 @@
         productList: [
           {
             id: 1,
-            icon: require('~/static/img/business/business01.jpg'),
-            title: '废弃手机',
-            desc: '以旧换新'
+            icon: require('~/static/img/business/01.png'),
+            title: '报废车',
+            desc: '库存车'
           },
           {
             id: 2,
-            icon: require('~/static/img/business/business02.jpg'),
-            title: '废弃家电',
-            desc: '以旧换新'
+            icon: require('~/static/img/business/02.png'),
+            title: '僵尸车',
+            desc: '闲置车'
           },
           {
             id: 3,
-            icon: require('~/static/img/business/business03.jpg'),
-            title: '常用家电',
-            desc: '补交差额以旧换新'
+            icon: require('~/static/img/business/03.png'),
+            title: '水淹车',
+            desc: '事故车'
           },
           {
             id: 4,
-            icon: require('~/static/img/business/business03.jpg'),
-            title: '家用电器',
-            desc: '补交差额以旧换新'
+            icon: require('~/static/img/business/04.png'),
+            title: '报废客车公交车',
+            desc: '工地车混泥土车大货车'
           }
         ],
-        title: '环保回收',
+        title: '高价回收',
         englishTitle: 'RECOVERY '
       }
     },
@@ -69,7 +69,7 @@
         this.$route.push({path: ''});
       },
       /**
-       * TODO 导航到环保交易
+       * TODO 导航到汽车交易
        * @constructor
        */
       NavRecoveryTrade() {

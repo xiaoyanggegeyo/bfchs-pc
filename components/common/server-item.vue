@@ -38,13 +38,13 @@
         list: [
           {
             icon: require('~/static/img/common/one.png'),
-            title: '价格无忧',
-            subtitle: '24小时价格保护'
+            title: '高价回收',
+            subtitle: '当天结款 当天拖车'
           },
           {
             icon: require('~/static/img/common/two.png'),
-            title: '极速返款',
-            subtitle: '检测后两小时内返款'
+            title: '不限车辆',
+            subtitle: '各种报废车二手车进口回收'
           },
           {
             icon: require('~/static/img/common/three.png'),
