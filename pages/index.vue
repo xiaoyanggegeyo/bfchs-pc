@@ -1,7 +1,7 @@
 <template>
   <div>
     <!--    轮播图-->
-    <carousel class="d-none d-md-block d-lg-block d-xl-block"  size="big" style="margin-top: 7rem"/>
+    <carousel class="d-none d-md-block d-lg-block d-xl-block"  size="big" style="margin-top: 7rem;"/>
     <!--    banner下面回收展示块-->
     <Exhibition/>
     <!--    高价回收模块-->

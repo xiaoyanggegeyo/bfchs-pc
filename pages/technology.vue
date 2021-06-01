@@ -2,7 +2,7 @@
   <section class="wrapper" style="background-color:#ffffff;">
     <!--    轮播图-->
     <carousel class="d-none d-md-block d-lg-block d-xl-block"  size="big"
-              :type="4"/>
+              type="4"/>
     <!--    <carousel class="d-block d-md-none d-lg-none d-xl-none" style="height: 0; padding-bottom: 120%" size="small"/>-->
     <div class="my-container py-5">
       <Title title="汽车交易" englishTitle="TRANSACTION"/>
@@ -19,7 +19,7 @@
         <b-col>
           <b-card v-for="(item,index) in productList" class="mb-3 wow fadeInUp my-card"
                   :data-wow-delay="(index * 0.2) + 's'"
-                  style="max-width: 20rem;display:inline-block;"
+                  style="max-width: 40rem;display:inline-block;width: 30%"
                   :key="index" @click="getProductDetail(item)">
             <div>
             </div>
@@ -189,6 +189,10 @@
       font-size: 15px;
       line-height: 23px;
       text-align: center;
+      width: 250px;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      white-space:nowrap
     }
 
     .my-desc {
@@ -196,6 +200,7 @@
       font-size: 15px;
       line-height: 23px;
       text-align: center;
+      width: 250px;
     }
   }
 

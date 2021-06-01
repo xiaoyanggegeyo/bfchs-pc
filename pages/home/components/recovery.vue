@@ -66,14 +66,14 @@
        * @constructor
        */
       NavRecoveryConsult() {
-        this.$route.push({path: ''});
+        this.$router.push({path: '/business'});
       },
       /**
        * TODO 导航到汽车交易
        * @constructor
        */
       NavRecoveryTrade() {
-        this.$route.push({path: ''});
+        this.$router.push({path: '/technology'});
       }
     }
   }
